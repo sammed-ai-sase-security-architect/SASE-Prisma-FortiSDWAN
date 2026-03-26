@@ -62,10 +62,17 @@ This architecture provides:
 
 ---
 
-## 🧪 Troubleshooting Scenarios
-- IPSec Tunnel Down
-- ZTNA Access Failure
-- Application Not Reachable
+## ⚡ Operational Troubleshooting Playbooks
+
+The project includes real-world incident handling examples:
+
+| Scenario | Document |
+|----------|----------|
+| Application Access Failures | [app-access-fail.md](troubleshooting/app-access-fail.md) |
+| SD-WAN Tunnel Down | [tunnel-down.md](troubleshooting/tunnel-down.md) |
+| Zero Trust Access Issues | [ztna-issues.md](troubleshooting/ztna-issues.md) |
+
+**Value:** Demonstrates hands-on experience resolving production-like SD-WAN and Zero Trust incidents, showing operational maturity and enterprise-level problem-solving skills.
 
 ---
 
