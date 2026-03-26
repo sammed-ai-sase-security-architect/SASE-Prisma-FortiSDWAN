@@ -73,14 +73,14 @@ Access Prisma Cloud portal
 config system sdwan
     set status enable
 end
+```
 
-Configure WAN Interfaces
+### Configure WAN Interfaces
+- WAN1 → ISP1  
+- WAN2 → ISP2  
 
-WAN1 → ISP1
-WAN2 → ISP2
-
-Create SD-WAN Rule
-
+### Create SD-WAN Rule
+```bash
 config system sdwan service
     edit 1
         set name "SaaS-Traffic"
@@ -88,11 +88,14 @@ config system sdwan service
         set priority-members 1 2
     next
 end
+```
 
-Step 3: IPSec Tunnel (FortiGate → Prisma)
+---
 
-Phase 1
+## ⚙️ Step 3: IPSec Tunnel (FortiGate → Prisma)
 
+### Phase 1
+```bash
 config vpn ipsec phase1-interface
     edit "Prisma-Tunnel"
         set interface "wan1"
@@ -100,44 +103,52 @@ config vpn ipsec phase1-interface
         set psksecret <your-psk>
     next
 end
+```
 
-Phase 2
-
+### Phase 2
+```bash
 config vpn ipsec phase2-interface
     edit "Prisma-P2"
         set phase1name "Prisma-Tunnel"
         set proposal aes256-sha256
     next
 end
+```
 
-Step 4: Routing Configuration
+---
 
-Static Route
+## ⚙️ Step 4: Routing Configuration
 
+### Static Route
+```bash
 config router static
     edit 1
         set dst 0.0.0.0/0
         set device "Prisma-Tunnel"
     next
 end
+```
 
-Step 5: Traffic Steering
+---
 
-Route SaaS traffic via Prisma Access
-Route internal traffic to Data Center
+## ⚙️ Step 5: Traffic Steering
 
-Step 6: Validation
+- Route SaaS traffic via Prisma Access  
+- Route internal traffic to Data Center  
 
-Check Tunnel Status
+---
 
+## ⚙️ Step 6: Validation
+
+### Check Tunnel Status
+```bash
 get vpn ipsec tunnel summary
+```
 
-Test Connectivity
+### Test Connectivity
+- Ping Prisma gateway  
+- Access SaaS applications  
 
-Ping Prisma gateway
-Access SaaS applications
-
-Verify Logs
-
-FortiGate logs
-Prisma Access logs
+### Verify Logs
+- FortiGate logs  
+- Prisma Access logs  
