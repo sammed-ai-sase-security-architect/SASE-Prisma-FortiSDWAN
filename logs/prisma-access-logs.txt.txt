@@ -1,0 +1,4 @@
+User: sammed@company.com
+Application: Salesforce
+Action: Allowed
+Policy: ZTNA-Allow

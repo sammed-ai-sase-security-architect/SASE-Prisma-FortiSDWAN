@@ -1,0 +1,11 @@
+config system sdwan
+    set status enable
+end
+
+config system sdwan service
+    edit 1
+        set name "SaaS-Traffic"
+        set dst "all"
+        set priority-members 1 2
+    next
+end

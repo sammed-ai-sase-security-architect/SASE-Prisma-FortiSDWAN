@@ -1,0 +1,14 @@
+config vpn ipsec phase1-interface
+    edit "Prisma-Tunnel"
+        set interface "wan1"
+        set remote-gw <PRISMA-IP>
+        set psksecret <your-psk>
+    next
+end
+
+config vpn ipsec phase2-interface
+    edit "Prisma-P2"
+        set phase1name "Prisma-Tunnel"
+        set proposal aes256-sha256
+    next
+end
