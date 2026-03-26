@@ -25,7 +25,7 @@ This architecture provides:
 ---
 
 ## 🏗️ Architecture Diagram
-![Architecture](./docs/network-architecture.svg)
+![Architecture](./docs/architecture.png.svg)
 
 ---
 
